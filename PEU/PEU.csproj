@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06B85F77-9001-4702-BFC6-0E3D22A0AC22}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PEU</RootNamespace>
+    <AssemblyName>PEU</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44358</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdministrativeController.cs" />
+    <Compile Include="Controllers\DirectorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfessorController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\assets\fotos\1.jpg" />
+    <Content Include="Content\assets\fotos\7.jpg" />
+    <Content Include="Content\assets\fotos\alv.jpg" />
+    <Content Include="Content\assets\fotos\foto.png" />
+    <Content Include="Content\assets\fotos\manuel.jpg" />
+    <Content Include="Content\assets\fotos\mario.jpg" />
+    <Content Include="Content\assets\fotos\xiu.jpg" />
+    <Content Include="Content\assets\icons\mCSB_buttons.png" />
+    <Content Include="Content\assets\img\administrativo.png" />
+    <Content Include="Content\assets\img\alumno.png" />
+    <Content Include="Content\assets\img\background.png" />
+    <Content Include="Content\assets\img\contacto.png" />
+    <Content Include="Content\assets\img\datos.png" />
+    <Content Include="Content\assets\img\datos_ad.png" />
+    <Content Include="Content\assets\img\datos_laborales.png" />
+    <Content Include="Content\assets\img\director.png" />
+    <Content Include="Content\assets\img\docente.png" />
+    <Content Include="Content\assets\img\documentos.png" />
+    <Content Include="Content\assets\img\error401.png" />
+    <Content Include="Content\assets\img\error404.png" />
+    <Content Include="Content\assets\img\estudiantes.png" />
+    <Content Include="Content\assets\img\historial.png" />
+    <Content Include="Content\assets\img\logo-circular.png" />
+    <Content Include="Content\assets\img\Logo.png" />
+    <Content Include="Content\assets\img\menu.png" />
+    <Content Include="Content\assets\img\procedencia.png" />
+    <Content Include="Content\assets\img\search.png" />
+    <Content Include="Content\assets\img\students.png" />
+    <Content Include="Content\assets\img\upqroo.ico" />
+    <Content Include="Content\css\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap-grid.min.css" />
+    <Content Include="Content\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\css\bootstrap-material-design.min.css" />
+    <Content Include="Content\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\css\bootstrap-utilities.css" />
+    <Content Include="Content\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.rtl.css" />
+    <Content Include="Content\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\css\buscador_perfil.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\css\ripples.min.css" />
+    <Content Include="Content\css\style_perfil.css" />
+    <Content Include="Content\css\sweetalert2.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.bootstrap.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.foundation.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.foundation.min.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.jqueryui.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.semanticui.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\jquery.dataTables.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\css\jquery.dataTables.min.css" />
+    <Content Include="Content\datatables\DataTables-1.10.18\images\sort_asc.png" />
+    <Content Include="Content\datatables\DataTables-1.10.18\images\sort_asc_disabled.png" />
+    <Content Include="Content\datatables\DataTables-1.10.18\images\sort_both.png" />
+    <Content Include="Content\datatables\DataTables-1.10.18\images\sort_desc.png" />
+    <Content Include="Content\datatables\DataTables-1.10.18\images\sort_desc_disabled.png" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.bootstrap.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.bootstrap.min.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.bootstrap4.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.foundation.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.foundation.min.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.jqueryui.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.jqueryui.min.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.semanticui.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\dataTables.semanticui.min.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\jquery.dataTables.js" />
+    <Content Include="Content\datatables\DataTables-1.10.18\js\jquery.dataTables.min.js" />
+    <Content Include="Content\datatables\datatables.css" />
+    <Content Include="Content\datatables\datatables.min.css" />
+    <Content Include="Content\datatables\datatables.min.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\js\bootstrap.bundle.js" />
+    <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\bootstrap.esm.js" />
+    <Content Include="Content\js\bootstrap.esm.min.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\data.js" />
+    <Content Include="Content\js\jquery-3.1.1.min.js" />
+    <Content Include="Content\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\js\jquery.mCustomScrollbar.concat2.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\material.min.js" />
+    <Content Include="Content\js\ripples.min.js" />
+    <Content Include="Content\js\script_perfil.js" />
+    <Content Include="Content\js\sweetalert2.min.js" />
+    <Content Include="Content\js\validador_asignaturas.js" />
+    <Content Include="Content\js\validador_asignaturas_modal.js" />
+    <Content Include="Content\js\validador_carreras.js" />
+    <Content Include="Content\js\validador_planes.js" />
+    <Content Include="Content\popper\popper.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\bootstrap-grid.css.map" />
+    <Content Include="Content\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\docs\201800025_actadenacimiento.pdf" />
+    <Content Include="Content\docs\214748364_Currículum.pdf" />
+    <Content Include="Content\fonts\Candara.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\js\bootstrap.esm.js.map" />
+    <Content Include="Content\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\js\bootstrap.js.map" />
+    <Content Include="Content\js\bootstrap.min.js.map" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\migration\asignaturas\director.php" />
+    <Content Include="Views\migration\asignaturas\getAsignatura.php" />
+    <Content Include="Views\migration\asignaturas\gettAsignatura.php" />
+    <Content Include="Views\migration\asignaturas\updateUnidad.php" />
+    <Content Include="Views\migration\asignaturas\updatteUnidad.php" />
+    <Content Include="Views\migration\carreras\agregarCarrera.php" />
+    <Content Include="Views\migration\carreras\director.php" />
+    <Content Include="Views\Errors\error401.php" />
+    <Content Include="Views\Errors\index.php" />
+    <Content Include="Views\migration\mpgh\biomedica.php" />
+    <Content Include="Views\migration\mpgh\biotec.php" />
+    <Content Include="Views\migration\mpgh\estudiantes.php" />
+    <Content Include="Views\migration\mpgh\financiera.php" />
+    <None Include="Views\Administrative\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAuth.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_MenuPartial.cshtml" />
+    <Content Include="Views\Administrative\_MenuPartial.cshtml" />
+    <Content Include="Views\Director\_MenuPartial.cshtml" />
+    <Content Include="Views\Professor\_MenuPartial.cshtml" />
+    <None Include="Views\Student\index.cshtml" />
+    <None Include="Views\Director\index.cshtml" />
+    <None Include="Views\Professor\index.cshtml" />
+    <Content Include="Views\migration\mpgh\pymes.php" />
+    <Content Include="Views\migration\mpgh\soft.php" />
+    <Content Include="Views\migration\mpgh\terapia.php" />
+    <Content Include="Views\migration\perfil\administrador.php" />
+    <Content Include="Views\migration\perfil\administrativo.php" />
+    <Content Include="Views\migration\perfil\alumno.php" />
+    <Content Include="Views\migration\perfil\director.php" />
+    <Content Include="Views\migration\perfil\docente.php" />
+    <Content Include="Views\migration\perfil_administrador\agregar_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador\agregar_alumno.php" />
+    <Content Include="Views\migration\perfil_administrador\agregar_director.php" />
+    <Content Include="Views\migration\perfil_administrador\agregar_docente.php" />
+    <Content Include="Views\migration\perfil_administrador\agregar_perfil.php" />
+    <Content Include="Views\migration\perfil_administrador\buscador.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_administrativo_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_alumno.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_alumno_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_director.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_director_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_docente.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\contacto_docente_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\cuenta_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\cuenta_alumno.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\cuenta_director.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\cuenta_docente.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_adicionales.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_adicionales_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_administrativo_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_alumno.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_alumno_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_director.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_director_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_docente.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_generales_docente_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_laborales_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_laborales_administrativo_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_laborales_docente.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\datos_laborales_docente_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_administrativo_agregar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_administrativo_eliminar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_administrativo_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_alumno.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_alumno_agregar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_alumno_eliminar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_alumno_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_director.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_director_agregar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_director_eliminar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_director_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_docente.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_docente_agregar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_docente_eliminar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\documentos_docente_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\historial.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\procedencia.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\procedencia_modificar.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\todo_administrativo.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\todo_alumno.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\todo_director.php" />
+    <Content Include="Views\migration\perfil_administrador_resultados\todo_docente.php" />
+    <Content Include="Views\migration\perfil_administrativo\buscador.php" />
+    <Content Include="Views\migration\perfil_administrativo\contacto.php" />
+    <Content Include="Views\migration\perfil_administrativo\contacto_modificar.php" />
+    <Content Include="Views\migration\perfil_administrativo\cuenta.php" />
+    <Content Include="Views\migration\perfil_administrativo\datos_generales.php" />
+    <Content Include="Views\migration\perfil_administrativo\datos_generales_modificar.php" />
+    <Content Include="Views\migration\perfil_administrativo\datos_laborales.php" />
+    <Content Include="Views\migration\perfil_administrativo\documentos.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\contacto.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\datos_adicionales.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\datos_generales_alumno.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\datos_generales_director.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\datos_generales_docente.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\datos_laborales.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\documentos.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\historial.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\procedencia.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\todo_alumno.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\todo_director.php" />
+    <Content Include="Views\migration\perfil_administrativo_resultados\todo_docente.php" />
+    <Content Include="Views\migration\perfil_alumno\contacto.php" />
+    <Content Include="Views\migration\perfil_alumno\contacto_modificar.php" />
+    <Content Include="Views\migration\perfil_alumno\cuenta.php" />
+    <Content Include="Views\migration\perfil_alumno\datos_adicionales.php" />
+    <Content Include="Views\migration\perfil_alumno\datos_generales.php" />
+    <Content Include="Views\migration\perfil_alumno\datos_generales_modificar.php" />
+    <Content Include="Views\migration\perfil_alumno\documentos.php" />
+    <Content Include="Views\migration\perfil_alumno\procedencia.php" />
+    <Content Include="Views\migration\perfil_director\contacto.php" />
+    <Content Include="Views\migration\perfil_director\contacto_modificar.php" />
+    <Content Include="Views\migration\perfil_director\cuenta.php" />
+    <Content Include="Views\migration\perfil_director\datos_generales.php" />
+    <Content Include="Views\migration\perfil_director\datos_generales_modificar.php" />
+    <Content Include="Views\migration\perfil_director\documentos.php" />
+    <Content Include="Views\migration\perfil_docente\contacto.php" />
+    <Content Include="Views\migration\perfil_docente\contacto_modificar.php" />
+    <Content Include="Views\migration\perfil_docente\cuenta.php" />
+    <Content Include="Views\migration\perfil_docente\datos_generales.php" />
+    <Content Include="Views\migration\perfil_docente\datos_generales_modificar.php" />
+    <Content Include="Views\migration\perfil_docente\datos_laborales.php" />
+    <Content Include="Views\migration\perfil_docente\documentos.php" />
+    <Content Include="Views\migration\perfil_docente\historial.php" />
+    <Content Include="Views\migration\planes\director.php" />
+    <Content Include="Views\migration\planes\director_insert.php" />
+    <Content Include="Views\migration\planes\director_select.php" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Student\_MenuPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\Dictionary\" />
+    <Folder Include="Views\migration\home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59976</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44358/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

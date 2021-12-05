@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Plataforma Educativa Universitaria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="shortcut icon" href="~/Content/assets/img/upqroo.ico">
+
+</head>
+
+<body>
+
+
+    <!--Banner informativa de plataforma | Logo, nombre de módulo, Usuario y tipo de usuario-->
+    <header>
+        <section class="bannerinfo caja-full">
+            <div class="container-fluid caja-full">
+                <div class="row centrarvertical caja-full">
+                    <div class="col-3 col-sm-6 col-md-4 seccion-logo">
+                        <div class="logo logo-orientacion">
+                            <div class="logo-nombre ">
+                                <p>Plataforma Educativa Universitaria</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 nombre-plan">
+                        <h1><i class="zmdi zmdi-view-dashboard"></i> Menú principal</h1>
+                    </div>
+                    <div class="col-9 col-sm-6 col-md-4 seccion-datos">
+                        <div class="datos-usuario datos-orientacion">
+                            <h2 class="nombre-usuario"></h2>
+                            <h5 class="tipo-usuario"></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+
+    <!--Sección de contenido de página | Menú de hamburguesa e información de pestaña-->
+    <section class="seccionmaster">
+        <div class="contenedormaster">
+
+            <!-- Menú de hamburguesa | MCPA-->
+            @Html.Partial("_MenuPartial")
+            
+            
+                    <!-- Barra de navegación | Opciones de pestaña-->
+
+                    <div class="dashboard-contentPage full-box">
+
+                        <!-- NavBar | Barra de navegación -->
+                        <!-- NavBar -->
+                        <nav class="dashboard-Navbar">
+
+                            <ul class="submenu list-unstyled">
+                                <li class="li-left">
+                                    <a href="#!"><div class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></div></a>
+                                </li>
+                                
+                            </ul>
+
+                        </nav>
+                        @RenderBody()
+                    </div>
+                </div>
+
+
+</section>
+
+
+
+    <!--Pie de página | Footer -->
+    <footer class="vertical">
+        <p>Av. Arco Bicentenario, Mza. 11, Lote 1119-33, SM. 255. Cancún, Quintana Roo, México. C.P. 77500 Tel. y Fax (998) 283 1859</p>
+    </footer>
+
+
+    <!--Scripts -->
+    <script src="~/Content/js/jquery-3.1.1.min.js"></script>
+    <script src="~/Content/js/sweetalert2.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/material.min.js"></script>
+    <script src="~/Content/js/ripples.min.js"></script>
+    <script src="~/Content/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+</html>
