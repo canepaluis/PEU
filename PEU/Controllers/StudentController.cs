@@ -13,5 +13,53 @@ namespace PEU.Controllers
         {
             return View();
         }
+
+        #region PERFIL
+        public ActionResult GeneralData()
+        {
+            return View();
+        }
+
+        public ActionResult ContactService()
+        {
+            return View();
+        }
+
+        public ActionResult Provenance()
+        {
+            return View();
+        }
+
+        public ActionResult AditionalData()
+        {
+            return View();
+        }
+
+        public ActionResult Documents()
+        {
+            return View();
+        }
+
+        public ActionResult Account()
+        {
+            return View();
+        }
+
+        #endregion
+
+        #region HORARIOS
+        public ActionResult Schedules()
+        {
+            return View();
+        }
+        #endregion
+
+        #region EVALUACION
+        public ActionResult Evaluation()
+        {
+            return View();
+        }
+        #endregion
+
     }
 }

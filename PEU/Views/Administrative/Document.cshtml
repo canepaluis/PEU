@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<!-- Informacion - Inicio -->
+<form class="container mt-3">
+    <div class="row formcss">
+        <table class="table text-center">
+            <thead style="background: #00b6bf; color: #fff;">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo de Documento</th>
+                    <th scope="col">Estatus</th>
+                    <th scope="col">Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if($this->resultado_documentos)
+                {
+                foreach($this->resultado_documentos as $key => $value)
+                {
+                ?>
+                <tr>
+                    <td>
+                        <?php echo $this->resultado_documentos[$key]['documento'] ;?>
+                    </td>
+                    <td>
+                        <?php echo $this->resultado_documentos[$key]['tipo_documento'] ;?>
+                    </td>
+                    <td>
+                        <?php echo $this->resultado_documentos[$key]['Estatus'] ;?>
+                    </td>
+                    <td>
+                        <a href="<?php echo URL;?>public/docs/<?php echo $this->resultado_documentos[$key]['Ruta'] ;?>" target="_blank">
+                            <button type="button" class="btn btn-secondary">
+                                Ver Documento
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <?php
+                }
+                }
+                ?>
+            </tbody>
+        </table>
+
+    </div>
+</form>
+<br>
+<!-- Informacion - Fin -->                

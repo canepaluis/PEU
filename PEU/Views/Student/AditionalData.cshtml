@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+
+<!-- Informacion - Inicio -->
+
+<form class="container mt-3">
+    <div class="row rowgreen"></div>
+    <div class="row rowhite">
+        <div class="col">
+            <div class="row">
+                <div class="col mt-3">
+                    <h4>Datos adicionales</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row formcss">
+                <div class="col-6">
+                    <label>Grupo indigena</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_grupo_indigena['Nombre'] ;?>">
+                </div>
+                <div class="col-6">
+                    <label>Lengua indigena</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_lengua['Nombre'] ;?>">
+                </div>
+                <div class="col-6">
+                    <label>Discapacidad</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_discapacidad['Nombre'] ;?>">
+                </div>
+                <div class="col-6">
+                    <label>Beca</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_beca['Nombre'] ;?>">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
+<!-- Informacion - Fin -->

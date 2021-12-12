@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+
+
+                <!-- Informacion - Inicio -->
+
+                <form class="container mt-3">
+                    <div class="row rowgreen"></div>
+                    <div class="row rowhite">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col mt-3">
+                                    <h4>Procedencia</h4>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row formcss">
+                                <div class="col-6">
+                                    <label>Escuela de procedencia</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_bachiller['Nombre'] ;?>">
+                                </div>
+                                <div class="col-6">
+                                    <label>Area</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_bachiller_area['Nombre'] ;?>">
+                                </div>
+                                <div class="col-6">
+                                    <label>Promedio general</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_procedencia['Prom_Gral'] ;?>">
+                                </div>
+                                <div class="col-6">
+                                    <label>Promedio exani II</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_procedencia['Prom_Exani_2'] ;?>">
+                                </div>
+                                <div class="col-6">
+                                    <label>Promedio egel</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_procedencia['Prom_EGEL'] ;?>">
+                                </div>
+                                <div class="col-6">
+                                    <label>Promedio toefl</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_procedencia['Prom_TOEFL'] ;?>">
+                                </div>
+                                <div class="col-6">
+                                    <label>Fecha de egreso</label>
+                                    <input type="date" class="form-control" disabled value="<?php echo $this->resultado_procedencia['Fecha_egreso'] ;?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <!-- Informacion - Fin -->

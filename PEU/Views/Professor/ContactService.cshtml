@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<!-- Informacion - Inicio -->
+<form class="container mt-3">
+    <div class="row rowgreen"></div>
+    <div class="row rowhite">
+        <div class="col">
+            <div class="row">
+                <div class="col mt-3">
+                    <h4>Contacto y Servicio Médico</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row formcss">
+                <div class="col-12">
+                    <label>Dirección</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_contacto['Domicilio']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Telefono fijo</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_contacto['Tel_Domicilio']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Celular</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_contacto['Celular']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Nombre de emergencia</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_contacto['Nombre_Emergencia']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Numero de emergencia</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_contacto['Tel_Emergencia']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Empresa afiliada</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_medico['Nombre']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>NSS</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_medico['Num_Afiliacion']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Tipo de sangre</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_medico['Tipo_Sangre']; ?>">
+                </div>
+                <div class="col-6">
+                    <label>Estatus</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_medico['Estatus']; ?>">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
+<!-- Informacion - Fin -->

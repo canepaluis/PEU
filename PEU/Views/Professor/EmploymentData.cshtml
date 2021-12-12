@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<!-- Informacion - Inicio -->
+<form class="container mt-3 ">
+    <div class="row rowgreen"></div>
+    <div class="row rowhite">
+        <div class="col">
+            <div class="row">
+                <div class="col mt-3">
+                    <h4>Datos Laborales</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row formcss">
+                <div class="col-6">
+                    <label>Puesto</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_puesto['Nombre'] ;?>">
+                </div>
+                <div class="col-6">
+                    <label>Area</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_area['Nombre'] ;?>">
+                </div>
+                <div class="col-6">
+                    <label>Departamento</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_departamento['Nombre'] ;?>">
+                </div>
+                <div class="col-6">
+                    <label>Fecha de ingreso</label>
+                    <input type="text" class="form-control" disabled value="<?php echo $this->resultado_laboral['Fecha_ingreso'] ;?>">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
+<!-- Informacion - Fin -->

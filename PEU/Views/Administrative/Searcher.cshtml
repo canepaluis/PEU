@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<!-- Informacion - Inicio -->
+
+<form class="content-buscador">
+    <div class="linea-buscador">
+        <img src="<?php echo URL;?>public/assets/img/search.png" alt="Icono_Buscador" class="logob" />
+        <p class="titulobuscador">Buscador de perfiles</p>
+    </div>
+    <hr>
+    <div>
+        <p>
+            Ingrese los datos del usuario a buscar. Puede usar nombres, matrículas o números de Control para
+            buscar: Alumnos, Docentes, o Directores
+            de carrera.
+        </p>
+        <input type="search" class="textb" name="buscar" id="buscar" value="<?php echo $this->buscar;?>">
+        <select name="perfil" id="perfil">
+            <?php
+            $array_values = array("Alumnos", "Docentes","Directores","Perfiles");
+            $array_options = array("Alumnos", "Docentes","Directores","Todos");
+            $total_perfiles = 4;
+            for ($i=1; $i <= $total_perfiles; $i++) {
+            if($this->perfil == $array_values[$i-1])
+            {
+            ?>
+            <option value="<?php echo $array_values[$i-1]; ?>" selected> <?php echo $array_options[$i-1]; ?> </option>
+            <?php
+            }else{
+            ?>
+            <option value="<?php echo $array_values[$i-1]; ?>"> <?php echo $array_options[$i-1]; ?> </option>
+            <?php
+            }
+            }
+            ?>
+        </select>
+        <select name="carrera" id="carrera">
+            <?php
+            $array_values = ["Carreras", "Ingeniería Software","Ingenieria en biomedica","Ingenieria en biotecnologia", "Financiera","Terapia Fisica","Licenciatura en Pymes"];
+            $array_options = ["Todos", "Software","Biomedica","Biotecnologia", "Financiera","Terapia Fisica","Licenciatura en Pymes"];
+            $total_carreras = 7;
+            for ($i=1; $i <= $total_carreras; $i++) {
+            if($this->carrera == $array_values[$i-1])
+            {
+            ?>
+            <option value="<?php echo $array_values[$i-1]; ?>" selected> <?php echo $array_options[$i-1]; ?> </option>
+            <?php
+            }else{
+            ?>
+            <option value="<?php echo $array_values[$i-1]; ?>"> <?php echo $array_options[$i-1]; ?> </option>
+            <?php
+            }
+            }
+            ?>
+        </select>
+        <input type="button" class="buttonb" value="Buscar" onclick="buscar_administrativo();">
+    </div>
+</form>
+<br>
+<p class="text-resultados text-center">Resultados: <?php echo $this->total_registros;?></p>
+<div class="container cuadroresultado">
+    <div class="row rowgreen"></div>
+    <div class="row rowhite">
+        <!-- TARGETA -->
+        <?php
+        if($this->buscador_resultados){
+        for ($i=$this->inicio_pagina; $i < $this->fin_pagina ; $i++) {
+        if($i <= ($this->total_registros-1)){
+        ?>
+        <div class="col" id="">
+            <div class="element">
+                <div class="sameline">
+                    <p class="matricula"> <?php echo $this->buscador_resultados[$i]['ID']?> </p>
+                    <p class="tipouser"> <?php echo $this->buscador_resultados[$i]['Perfil']?> </p>
+                </div>
+                <p class="name"> <?php echo $this->buscador_resultados[$i]['Nombres'].' '.$this->buscador_resultados[$i]['apP'].' '.$this->buscador_resultados[$i]['apM']; ?> </p>
+                <label>Seccion: </label>
+                <select name="seccion" id="seccion<?php echo $i;?>">
+                    <?php
+                    if($this->buscador_resultados[$i]['Perfil'] == "Alumno")
+                    {
+                    ?>
+                    <option value="Secciones">Todos</option>
+                    <option value="Generales">Datos generales</option>
+                    <option value="Contacto">Contacto</option>
+                    <option value="Procedencia">Procedencia</option>
+                    <option value="Adicionales">Adicionales</option>
+                    <option value="Documentos">Documentos</option>
+                    <?php
+                    }else if($this->buscador_resultados[$i]['Perfil'] == "Docente"){
+                    ?>
+                    <option value="Secciones">Todos</option>
+                    <option value="Generales">Datos generales</option>
+                    <option value="Contacto">Contacto</option>
+                    <option value="Laborales">Datos laborales</option>
+                    <option value="Documentos">Documentos</option>
+                    <option value="Historial">Historial</option>
+                    <?php
+                    }
+                    else if($this->buscador_resultados[$i]['Perfil'] == "Director"){
+                    ?>
+                    <option value="Secciones">Todos</option>
+                    <option value="Generales">Datos generales</option>
+                    <option value="Contacto">Contacto</option>
+                    <option value="Documentos">Documentos</option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <div class="botones text-right mt-3">
+                    <?php
+                    if($this->buscador_resultados[$i]['Perfil'] == "Alumno")
+                    {
+                    ?>
+                    <input class="botonver" type="button" value="ver" onclick="definirSeccionAlumno(<?php echo $this->buscador_resultados[$i]['ID'];?>,<?php echo $i;?>);">
+                    <input class="botonimp" type="button" value="imprimir" onclick="pdfAlumno(<?php echo $this->buscador_resultados[$i]['ID'];?>,<?php echo $i;?>);">
+                    <?php
+                    }else if($this->buscador_resultados[$i]['Perfil'] == "Docente"){
+                    ?>
+                    <input class="botonver" type="button" value="ver" onclick="definirSeccionDocente(<?php echo $this->buscador_resultados[$i]['ID'];?>,<?php echo $i;?>);">
+                    <input class="botonimp" type="button" value="imprimir">
+                    <?php
+                    }else if($this->buscador_resultados[$i]['Perfil'] == "Director"){
+                    ?>
+                    <input class="botonver" type="button" value="ver" onclick="definirSeccionDirector(<?php echo $this->buscador_resultados[$i]['ID'];?>,<?php echo $i;?>);">
+                    <input class="botonimp" type="button" value="imprimir" onclick="">
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <?php
+        }
+        }
+        }
+        ?>
+        <!-- TARGETA -->
+    </div>
+    <!-- PAGINACION -->
+    <div class="row my-2">
+        <div class="col-10">
+            <nav aria-label=" ">
+                <ul class="pagination">
+                    <?php
+                    if($this->pagina !=1){
+                    ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo URL." perfil_administrativo /buscador/".$this->buscar.'/'.$this->perfil.'/'.$this->carrera.'/'.($this->pagina-1);?>">Previous</a></li>
+                    <?php
+                    }else if($this->pagina == 1){
+                    ?>
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <?php
+                    }
+                    if($this->pagina < $this->total_paginas){
+                    ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo URL." perfil_administrativo /buscador/".$this->buscar.'/'.$this->perfil.'/'.$this->carrera.'/'.($this->pagina+1);?>">Next</a></li>
+                    <?php
+                    }else if($this->pagina == $this->total_paginas){
+                    ?>
+                    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary">Imprimir todos</button>
+        </div>
+    </div>
+    <!-- PAGINACION -->
+</div>
+
+<!-- Informacion - Fin -->                

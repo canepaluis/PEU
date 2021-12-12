@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+
+<!-- Informacion - Inicio -->
+<form class="container mt-3">
+    <div class="row rowgreen"></div>
+    <div class="row rowhite">
+        <div class="col">
+            <div class="row formcss">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col mt-3">
+                            <h4>Asignaturas</h4>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php
+                        if($this->resultado_asignaturas)
+                        {
+                        foreach($this->resultado_asignaturas as $key => $value)
+                        {
+                        ?>
+                        <div class="col-4 text-center">
+                            <label>Carrera</label>
+                            <input type="text" class="form-control form-control-sm text-center" disabled value="<?Php echo $this->resultado_asignaturas[$key]['Nom_Carrera']; ?>">
+                        </div>
+                        <div class="col-4 text-center">
+                            <label>Asignatura</label>
+                            <input type="text" class="form-control form-control-sm text-center" disabled value="<?Php echo $this->resultado_asignaturas[$key]['Nombre_Asig']; ?>">
+                        </div>
+                        <div class="col-4 text-center">
+                            <label>Estatus</label>
+                            <input type="text" class="form-control form-control-sm text-center" disabled value="<?Php echo $this->resultado_asignaturas[$key]['Estatus']; ?>">
+                        </div>
+                        <?php
+                        }
+                        }
+                        ?>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col mt-3">
+                            <h4>Historial</h4>
+                            <hr>
+                        </div>
+                    </div>
+                    <table class="table text-center">
+                        <thead style="background: #00b6bf; color: #fff;">
+                            <tr>
+                                <th scope="col">Año</th>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Asignatura</th>
+                                <th scope="col">Carrera</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if($this->resultado_historial)
+                            {
+                            foreach($this->resultado_historial as $key => $value)
+                            {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?php echo $this->resultado_historial[$key]['Anio'];?>
+                                </td>
+                                <td>
+                                    <?php echo $this->resultado_historial[$key]['Descripcion'];?>
+                                </td>
+                                <td>
+                                    <?php echo $this->resultado_historial[$key]['Nombre_Asig'];?>
+                                </td>
+                                <td>
+                                    <?php echo $this->resultado_historial[$key]['Nom_Carrera'];?>
+                                </td>
+                            </tr>
+                            <?php
+                            }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
+<!-- Informacion - Fin -->                

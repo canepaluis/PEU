@@ -1,0 +1,499 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<!-- Contenido de pestaña-->
+
+<div class="pestaña-contenido">
+    <section class="full-box">
+        <div class="contenido">
+
+
+            <!-- Pestaña | contenido de sección-->
+
+            <div class="pestaña-contenido">
+                <section class="full-box">
+                    <div class="contenido">
+
+
+                        <!-- Pestaña | contenido de sección-->
+
+                        <div class="contenido-box">
+                            <div class="nombre-seccion">
+                                <h3><i class="zmdi zmdi-library"></i></i> Planes académicos</h3>
+                            </div>
+                            <div class="descripcion-seccion">
+                                <p>
+                                    Visualiza, actualiza y agrega asignaturas  según el programa de la carrera, procura ser cuidadoso con la información para no tener
+                                    problemas a largo plazo.
+                                </p>
+                            </div>
+                            <div class="input-group">
+
+                                <form action="<?php echo constant('URL'); ?>planes/getBuscador" method="POST">
+                                    <div class="input-group pb-4 pt-1 buscador">
+                                        <select class="form-select" id="inputGroupSelect04" name="plan">
+                                            <?php foreach ($this->select as $opciones) : ?>
+                                            <option value="<?php echo $opciones->Cod_Revision?>"
+																			<?php $seleccionar= $this->resultadoPlan['Cod_Revision'];
+																				if($seleccionar==$opciones->Cod_Revision)
+																				{
+																					echo "selected";
+																				}
+																			?>
+																		> <?php echo $opciones->Cod_Revision ?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                        <button class="btn btn-primary" type="submit"><i class="zmdi zmdi-search"></i> Buscar</button>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                            <div class="input-group mb-3">
+
+                            </div>
+
+                            <div class="formulario-box">
+                                <form class="diseño-formulario" id="validacionplanes">
+                                    <div class="nombre-clasificación-formulario">
+                                        <h4><i class="zmdi zmdi-info"></i> Información de plan académico</h4>
+                                    </div>
+                                    <div class="container-fluid">
+
+                                        <!-- Input grupo carrera-->
+
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 ">
+                                                <div class="formulario__grupo" id="grupo__carrera">
+                                                    <label for="usuario" class="formulario__label">Nombre de carrera</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="carrera" id="carrera" placeholder="Nombre oficial de la carrera" required disabled value="<?php echo $this->resultadoPlan['Nom_Carrera'];?>">
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- total materias -->
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 ">
+                                                <div class="formulario__grupo" id="grupo__carrera">
+                                                    <label for="usuario" class="formulario__label">Total Materias</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="totalmaterias" id="totalmaterias" placeholder="Total Materias" required disabled>
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- Input plan académico-->
+
+                                        <div class="row ">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="formulario__grupo" id="grupo__plan">
+                                                    <label for="plan" class="formulario__label">Plan académico</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="plan" id="plan" placeholder="Plan académico" required disabled>
+
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracter tipo letra y maximo de 1 en mayúsculas.</p>
+                                                </div>
+                                            </div>
+
+                                            <!--Input clave oficial-->
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="formulario__grupo" id="grupo__claveoficial">
+                                                    <label for="claveoficial" class="formulario__label">Clave oficial</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="claveoficial" id="claveoficial" placeholder="Clave oficial del plan académico" required disabled>
+
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracteres tipo alfanumérico y un máximo de 10.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Input periodo duración-->
+
+                                        <div class="row ">
+
+                                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                                <div class="formulario__grupo" id="grupo__periododuracion">
+                                                    <label for="periododuracion" class="formulario__label">Periodo de duración</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="periododuracion" id="periododuracion" placeholder="Periodo de duración" required disabled>
+
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracter tipo numérico y un maximo de 2.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Input créditos totales-->
+
+                                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                                <div class="formulario__grupo" id="grupo__creditostotales">
+                                                    <label for="creditostotales" class="formulario__label">Créditos totales</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="creditostotales" id="creditostotales" placeholder="Créditos totales" required disabled>
+
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracter tipo numérico y un maximo de 3.</p>
+                                                </div>
+                                            </div>
+
+                                            <!--Input periodo máximo-->
+                                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                                <div class="formulario__grupo" id="grupo__periodomaximo">
+                                                    <label for="periodomaximo" class="formulario__label">Periodo máximo</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="formulario__input form-control" name="periodomaximo" id="periodomaximo" placeholder="Periodo máximo" required disabled>
+
+                                                    </div>
+                                                    <p class="formulario__input-error">Solo puede contener caracter tipo numérico y un maximo de 2.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="nombre-clasificación-formulario">
+                                            <h4><i class="zmdi zmdi-book"></i> Asignaturas</h4>
+                                        </div>
+
+                                        <div class="table-responsive tablapadding">
+                                            <table id="example" class="table table-striped color-tabla" style="width:100%">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>Clave</th>
+                                                        <th>Asignatura</th>
+                                                        <th>Créditos</th>
+                                                        <th>Unidades</th>
+                                                        <th>Horas totales</th>
+                                                        <th>Plan</th>
+
+                                                        <th style="text-align: center" data-orderable="false"><i class="zmdi zmdi-settings"></i> Opciones </th>
+                                                    </tr>
+                                                </thead>
+                                                <!-- ?php var_dump($this->alumnos);?> -->
+                                                <tbody>
+                                                    <tr>
+                                                        <?php
+                                                        include_once 'models/asignatura.php';
+                                                        foreach($this->asignatura as $row)
+                                                        {
+                                                        $asignatura = new Asignatura();
+                                                        $asignatura = $row;
+
+                                                        ?>
+                                                        <td><?php echo $asignatura->Clave_Materia;?></td>
+                                                        <td><?php echo $asignatura->Nombre_Asig;?></td>
+                                                        <td><?php echo $asignatura->Creditos;?></td>
+                                                        <td><?php echo $asignatura->Unidades;?></td>
+                                                        <td><?php echo $asignatura->Hrs_Totales;?></td>
+                                                        <td><?php echo $asignatura->Cod_Revision;?></td>
+                                                        <td style="text-align: center"><a href="asignaturas.html" class="btn btn-danger btn-sm editar-boton"><i class="zmdi zmdi-edit"></i></a><button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="zmdi zmdi-eye"></i></button></td>
+                                                    </tr>
+                                                    <?php } ?>
+                                                </tbody>
+
+
+                                            </table>
+
+
+                                        </div>
+
+                                        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" id="alerta_planes" style="display: none">
+                                            <strong>Oops!</strong> No es posible enviar los datos, verifica que tu información este correctamente escrita.
+                                        </div>
+
+                                        <div class="boton-dise">
+                                            <button class="btn btn-primary botonespacio" id="boton" style="display:none" type="submit">Actualizar información</button>
+                                            <button class="btn btn-primary botonespacio" id="boton_agregar" style="display:none" type="submit">Agregar plan</button>
+                                        </div>
+                                    </div>
+
+                            </div>
+
+                            </form>
+
+                            <!--Aqui inicia el modal de ver asignaturas-->
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title info-asignatura" id="exampleModalLabel"><i class="zmdi zmdi-book"></i> Asignaturas</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!--aqui inicia formulario-->
+                                            <form>
+                                                <div class="modalnombre-clasificación-formulario">
+                                                    <h4><i class="zmdi zmdi-info"></i> Información de la asignatura</h4>
+                                                </div>
+                                                <div class="">
+                                                    <!-- Input clave asignatura-->
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-4 col-lg-2">
+                                                            <div class="formulario__grupo" id="grupo__claveasignatura">
+                                                                <label for="claveasignatura" class="formulario__label">Clave</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="claveasignatura" id="claveasignatura" placeholder="Clave" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input nombre asignatura-->
+                                                        <div class="col-sm-12 col-md-8 col-lg-5">
+                                                            <div class="formulario__grupo" id="grupo__nombreasignatura">
+                                                                <label for="usuario" class="formulario__label">Nombre de la asignatura</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="nombreasignatura" id="nombreasignatura" placeholder="Nombre de la signatura" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input nombre corto de la asignatura-->
+                                                        <div class="col-sm-12 col-md-12 col-lg-5">
+                                                            <div class="formulario__grupo" id="grupo__nombrecortoasignatura">
+                                                                <label for="usuario" class="formulario__label">Nombre corto de asignatura</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="nombrecortoasignatura" id="nombrecortoasignatura" placeholder="Nombre corto de la asignatura" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Input créditos-->
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-lg-3">
+                                                            <div class="formulario__grupo" id="grupo__creditoasignatura">
+                                                                <label for="claveasignatura" class="formulario__label">Créditos</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="claveasignatura" id="claveasignatura" placeholder="Créditos" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input nombre asignatura-->
+                                                        <div class="col-sm-12 col-md-6 col-lg-3">
+                                                            <div class="formulario__grupo" id="grupo__nombreasignatura">
+                                                                <label for="usuario" class="formulario__label">Horas teóricas</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="nombreasignatura" id="nombreasignatura" placeholder="Horas teóricas" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input nombre corto de la asignatura-->
+                                                        <div class="col-sm-12 col-md-6 col-lg-3">
+                                                            <div class="formulario__grupo" id="grupo__nombrecortoasignatura">
+                                                                <label for="usuario" class="formulario__label">Horas practicas</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="nombrecortoasignatura" id="nombrecortoasignatura" placeholder="Horas practicas" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-sm-12 col-md-6 col-lg-3">
+                                                            <div class="formulario__grupo" id="grupo__nombrecortoasignatura">
+                                                                <label for="usuario" class="formulario__label">Hora totales</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="nombrecortoasignatura" id="nombrecortoasignatura" placeholder="Horas totales" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Input plan académico-->
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-lg-3">
+                                                            <div class="formulario__grupo" id="grupo__creditoasignatura">
+                                                                <label for="claveasignatura" class="formulario__label">Plan académico</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="claveasignatura" id="claveasignatura" placeholder="Plan académico" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input unidades de la materia-->
+                                                        <div class="col-sm-12 col-md-6 col-lg-2">
+                                                            <div class="formulario__grupo" id="grupo__nombreasignatura">
+                                                                <label for="usuario" class="formulario__label">Unidades</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" class="formulario__input form-control" name="nombreasignatura" id="nombreasignatura" placeholder="Unidades" required readonly>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input nombre corto de la asignatura-->
+                                                        <div class="col-sm-12 col-md-12 col-lg-7">
+                                                            <div class="formulario__grupo" id="grupo__nombrecortoasignatura">
+                                                                <label for="usuario" class="formulario__label">Manual de asignatura</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <div class="d-grid">
+                                                                        <a href="https://www.proturbiomarspa.com/files/_pdf-prueba.pdf" download="Manual_Asignatura.pdf" class="btn btn-primary btn-block"><i class="zmdi zmdi-download"></i> Descargar manual</a>
+                                                                    </div>
+
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!--Objetivos de la materia-->
+
+                                                    <div class="nombre-clasificación-formulario">
+                                                        <h4><i class="zmdi zmdi-check-circle"></i> Objetivos de la asignatura</h4>
+                                                    </div>
+
+                                                    <!-- Text area caracterización-->
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="formulario__grupo" id="grupo__creditoasignatura">
+                                                                <label for="claveasignatura" class="formulario__label">Caracterización</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required readonly></textarea>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- Text area intuición didáctica-->
+                                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="formulario__grupo" id="grupo__nombreasignatura">
+                                                                <label for="usuario" class="formulario__label">Intuición didáctica</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required readonly></textarea>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="formulario__grupo" id="grupo__nombrecortoasignatura">
+                                                                <label for="usuario" class="formulario__label">Competencias específicas</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required readonly></textarea>
+                                                                    <i class="formulario__validacion-estado zmdi zmdi-check-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 40.</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!--Contenidos de la asignatura-->
+
+                                                    <div class="nombre-clasificación-formulario">
+                                                        <h4><i class="zmdi zmdi-folder"></i> Contenidos de la asignaturas</h4>
+                                                    </div>
+
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped colortr">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Unidad</th>
+                                                                    <th scope="col">Descripción</th>
+                                                                    <th scope="col">Sub</th>
+                                                                    <th scope="col">Descripción</th>
+                                                                    <th scope="col">Competencias genéricas</th>
+                                                                    <th scope="col">Actividades de aprendizaje</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="colortr">
+                                                                    <th scope="row" class="text-center">1</th>
+                                                                    <td>Interacción inicial a las mateméticas discretas</td>
+                                                                    <td>Números reales</td>
+                                                                    <td>No hay descripción</td>
+                                                                    <td>El alumno realizará procedimientos matemáticos para la aplicación de números reales</td>
+                                                                    <td>Operaciones, resolución de problemas matéticos</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row" class="text-center">2</th>
+                                                                    <td>Interacción inicial a las mateméticas discretas</td>
+                                                                    <td>Números reales</td>
+                                                                    <td>No hay descripción</td>
+                                                                    <td>El alumno realizará procedimientos matemáticos para la aplicación de números reales</td>
+                                                                    <td>Operaciones, resolución de problemas matéticos</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row" class="text-center">3</th>
+                                                                    <td>Interacción inicial a las mateméticas discretas</td>
+                                                                    <td>Números reales</td>
+                                                                    <td>No hay descripción</td>
+                                                                    <td>El alumno realizará procedimientos matemáticos para la aplicación de números reales</td>
+                                                                    <td>Operaciones, resolución de problemas matéticos</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+
+                                                </div>
+                                            </form>
+                                            <!--aqui inicia formulario-->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Aqui termina el modal de ver asignaturas-->
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+            </div>
+    </section>
+</div>

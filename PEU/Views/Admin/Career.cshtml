@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<div class="contenido-box">
+    <div class="nombre-seccion">
+        <h3><i class="zmdi zmdi-graduation-cap"></i> Carreras</h3>
+    </div>
+    <div class="descripcion-seccion">
+        <p>
+            En nuestra casa de estudios ofrecemos una gran variedad de licenciaturas (carreras), debido a que eres coordinador puedes visualizar o
+            actualizar información de la carrera.
+        </p>
+    </div>
+
+    <div class="formulario-box">
+
+        <form class="diseño-formulario" id="validacioncarreras" action="<?php echo constant('URL'); ?>carreras/actualizarCarrera" method="POST">
+            <div class="nombre-clasificación-formulario">
+                <h4><i class="zmdi zmdi-info"></i> Información sobre la carrera</h4>
+            </div>
+            <div class="container-fluid">
+
+                <!-- Input grupo carrera-->
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 ">
+                        <div class="formulario__grupo" id="grupo__carrera">
+                            <label for="usuario" class="formulario__label">Nombre de carrera</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input form-control" name="carrera" id="carrera" placeholder="Nombre oficial de la carrera" value="<?php echo $this->resultado['Nom_Carrera'];?>" required disabled>
+                            </div>
+                            <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 50.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Input fecha de inicio-->
+
+                <div class="row ">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="formulario__grupo was-validated" id="grupo__fechainicio">
+                            <label for="fechainicio" class="formulario__label">Fecha de inicio</label>
+                            <div class="formulario__grupo-input">
+                                <input type="date" class="formulario__input form-control" name="fechainicio" id="fechainicio" value="<?php echo $this->resultado['Inicio'];?>" required disabled>
+
+                                <div class="invalid-feedback formulario__input-error">Elije una fecha de inicio</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Input fehca de termino-->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="formulario__grupo" id="grupo__fechatermino">
+                            <label for="fechatermino" class="formulario__label">Fecha de finalización</label>
+                            <div class="formulario__grupo-input">
+                                <input type="date" class="formulario__input form-control" name="fechatermino" id="fechatermino" value="<?php echo $this->resultado['Terminacion'];?>" disabled>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--Input select grado académico-->
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="separacion-input was-validated">
+                            <label class="nombre-campo" for="grado-academico">Grado académico</label>
+                            <select class="form-select" name="graAcademico" required disabled>
+                                <option value="">Selecciona el grado académico</option>
+                                <?php foreach ($this->niveles as $opciones) : ?>
+                                <option value="<?php echo $opciones->ID_Niv ?>"
+
+																				<?php $seleccionar= $this->resultado['ID_Niv'];
+																				if($seleccionar==$opciones->ID_Niv){
+																					echo "selected";
+																				}
+																				?>
+
+																				> <?php echo $opciones->Niv_Nombre ?></option>
+                                <?php endforeach;?>
+                            </select>
+                            <div class="invalid-feedback formulario__input-error">Selecciona el grado académico de la carrera.</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="separacion-input was-validated">
+                            <label class="nombre-campo" for="situacion-carrera">Situación</label>
+                            <select class="form-select" name="situacion" required disabled>
+                                <option value="">Selecciona la situación</option>
+                                <?php foreach ($this->situacionCarrera as $k) : ?>
+                                <option value="<?php echo $k->ID_sit?>"
+
+																				<?php $seleccionar= $this->resultado['ID_Sit'];
+																				if($seleccionar==$k->ID_sit){
+																					echo "selected";
+																				}
+																				?>
+
+																				> <?php echo $k->Sit_Nombre?></option>
+                                <?php endforeach;?>
+                            </select>
+                            <div class="invalid-feedback formulario__input-error">Selecciona la situación actual de la carrera.</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Input grupo coordinador-->
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 ">
+                        <div class="formulario__grupo" id="grupo__coordinador">
+                            <label for="usuario" class="formulario__label">Nombre del coordinador</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input form-control" name="coordinador" id="coordinador" placeholder="Nombre del coordinador" value="<?php echo $this->resultado['Cordinador'];?>" required disabled>
+                            </div>
+                            <p class="formulario__input-error">Solo puede contener caracteres tipo letra y maximo de 75.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" id="alerta_carreras" style="display: none">
+                    <strong>Oops!</strong> No es posible enviar los datos, verifica que tu información este correctamente escrita.
+                </div>
+
+
+                <div class="boton-dise">
+                    <button class="btn btn-primary botonespacio" id="boton" style="display:none" type="submit">Actualizar información</button>
+                    <button class="btn btn-primary botonespacio" id="boton_agregar" style="display:none" type="submit">Agregar nueva carrera</button>
+                </div>
+            </div>
+
+    </div>
+
+    </form>
+</div>
+

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="~/Content/css/main.css">
     <link rel="shortcut icon" href="~/Content/assets/img/upqroo.ico">
+    <link href="~/Content/css/style_perfil.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -31,8 +32,8 @@
                     </div>
                     <div class="col-9 col-sm-6 col-md-4 seccion-datos">
                         <div class="datos-usuario datos-orientacion">
-                            <h2 class="nombre-usuario"></h2>
-                            <h5 class="tipo-usuario"></h5>
+                            <h2 class="nombre-usuario"><?php echo $session->get("nombre"); ?></h2>
+                            <h5 class="tipo-usuario"><?php echo $session->get("tipo");?></h5>
                         </div>
                     </div>
                 </div>
@@ -57,14 +58,18 @@
                         <!-- NavBar | Barra de navegación -->
                         <!-- NavBar -->
                         <nav class="dashboard-Navbar">
-
                             <ul class="submenu list-unstyled">
                                 <li class="li-left">
                                     <a href="#!"><div class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></div></a>
                                 </li>
+                                <li class="li-left indice-navegacion">
+                                    <a href="home"><div class="op-navegador"><div class="navegadornombre">Inicio</div><div class="navegadorflecha"></div></div></a>
+                                </li>
+                                <li class="li-right">
+                                    <a href="#!" class="btn-exit-system margen-navbar"><div class="espacio"><i></i>Cerrar sesión</div></a>
+                                </li>
                                 
                             </ul>
-
                         </nav>
                         @RenderBody()
                     </div>
